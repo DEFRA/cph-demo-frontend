@@ -1,13 +1,18 @@
-import { config } from '../../config/config.js'
 import Jwt from '@hapi/jwt'
-import auth from '../plugins/auth.js'
 
 export default [
   {
     method: 'GET',
     path: '/signin',
     handler: (request, h) => {
-      request.cookieAuth.set({ authenticated: true })
+      const idPayload = Jwt.token.decode(request.auth.artifacts.id_token).decoded.payload
+
+      request.cookieAuth.set({
+        name: idPayload.name,
+        email: idPayload.preferred_username,
+        roles: idPayload.roles
+      })
+
       return h.redirect('/')
     },
     options: {
