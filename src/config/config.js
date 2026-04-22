@@ -37,7 +37,7 @@ export const config = convict({
       nullable: true,
       default: null,
       env: 'ENTRA_TENANT'
-    },
+    }
   },
   serviceVersion: {
     doc: 'The service version, this variable is injected into your docker container in CDP environments',

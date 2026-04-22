@@ -6,11 +6,7 @@ import { serveStaticFiles } from './common/helpers/serve-static-files.js'
 import signin from './routes/signin.js'
 import signout from './routes/signout.js'
 
-const routes = [
-  ...home,
-  ...signin,
-  ...signout
-]
+const routes = [...home, ...signin, ...signout]
 
 export const router = {
   plugin: {

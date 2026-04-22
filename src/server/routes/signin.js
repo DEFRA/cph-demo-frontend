@@ -5,7 +5,8 @@ export default [
     method: 'GET',
     path: '/signin',
     handler: (request, h) => {
-      const idPayload = Jwt.token.decode(request.auth.artifacts.id_token).decoded.payload
+      const idPayload = Jwt.token.decode(request.auth.artifacts.id_token)
+        .decoded.payload
 
       request.cookieAuth.set({
         name: idPayload.name,
