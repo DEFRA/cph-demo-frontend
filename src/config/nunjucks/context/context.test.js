@@ -60,7 +60,7 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
-          serviceName: 'cph-demo-frontend',
+          serviceName: 'CPH Admin Portal',
           serviceUrl: '/'
         })
       })
@@ -149,7 +149,7 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
-          serviceName: 'cph-demo-frontend',
+          serviceName: 'CPH Admin Portal',
           serviceUrl: '/'
         })
       })
