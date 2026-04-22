@@ -14,19 +14,21 @@
 {% endblock %}
 
 {% block header %}
-  {# serviceName being used in govukHeader will be @deprecated in v6. It has moved to govukServiceNavigation - https://github.com/alphagov/govuk-frontend/blob/main/CHANGELOG.md#move-service-name-and-navigation-links-from-the-govuk-header-to-service-navigation-component #}
-  {{ govukHeader({
-    homepageUrl: "https://www.gov.uk/",
-    classes: "app-header",
-    containerClasses: "govuk-width-container",
-    serviceName: serviceName,
-    serviceUrl: serviceUrl,
-    useTudorCrown: true
-  }) }}
-
-  {{ govukServiceNavigation({
-    navigation: navigation
-  }) }}
+  <header class="govuk-header " role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+        <div class="header-container">
+        <h1 class="govuk-header__service-name">
+          {{ serviceName }} 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          {{userName}} | {{userRole}} | <a href="https://login.microsoftonline.com/defradev.onmicrosoft.com/oauth2/v2.0/logout" class="govuk-link govuk-link--inverse govuk-!-margin-top-1">Sign out</a>
+        </h1>
+        <p class="govuk" style="color: white; margin-top: 20px;"> </p>
+      </div>
+    </div>
+  </header>
 {% endblock %}
 
 {% block pageTitle %}
@@ -44,24 +46,7 @@
 {% block content %}{% endblock %}
 
 {% block footer %}
-  {{ govukFooter({
-    meta: {
-      items: [
-        {
-          href: "https://www.gov.uk/help/privacy-notice",
-          text: "Privacy"
-        },
-        {
-          href: "https://www.gov.uk/help/cookies",
-          text: "Cookies"
-        },
-        {
-          href: "https://www.gov.uk/help/accessibility-statement",
-          text: "Accessibility statement"
-        }
-      ]
-    }
-  }) }}
+  <hr />
 {% endblock %}
 
 {% block bodyEnd %}

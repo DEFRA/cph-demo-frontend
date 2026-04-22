@@ -16,6 +16,29 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 convict.addFormats(convictFormatWithValidator)
 
 export const config = convict({
+  entra: {
+    clientId: {
+      doc: 'Entra client ID for App Reg',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'ENTRA_CLIENT_ID'
+    },
+    clientSecret: {
+      doc: 'Entra client secret for App Reg',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'ENTRA_CLIENT_SECRET'
+    },
+    tenant: {
+      doc: 'Entra tenant for App Reg',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'ENTRA_TENANT'
+    },
+  },
   serviceVersion: {
     doc: 'The service version, this variable is injected into your docker container in CDP environments',
     format: String,
@@ -44,7 +67,7 @@ export const config = convict({
   serviceName: {
     doc: 'Applications Service Name',
     format: String,
-    default: 'cph-demo-frontend'
+    default: 'CPH Admin Portal'
   },
   root: {
     doc: 'Project root',
