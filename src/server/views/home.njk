@@ -1,9 +1,33 @@
 {% extends 'layouts/page.njk' %}
 
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
 {% block content %}
-<ul>
-  {% for cph in cphs %}
-    <li>{{ cph }}</li>
-  {% endfor %}
-</ul>
+
+<h2 class="govuk-heading-l">CPHs</h2>
+<div class="govuk-body">
+  <ul>
+    {% for cph in cphs %}
+      <li>{{ cph }}</li>
+    {% endfor %}
+  </ul>
+</div>
+<div>
+  <form method="post" action="/">
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Add random CPH",
+      name: "action",
+      value: "add"
+    }) }}
+    {{ govukButton({
+      text: "Delete CPHs",
+      name: "action",
+      value: "delete",
+      classes: "govuk-button--warning"
+    }) }}
+  </div>
+  </form>
+
+</div>
 {% endblock %}
