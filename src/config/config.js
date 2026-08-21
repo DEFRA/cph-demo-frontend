@@ -16,6 +16,14 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 convict.addFormats(convictFormatWithValidator)
 
 export const config = convict({
+  backend: {
+    endpoint: {
+      doc: 'Endpoint for cph-service-backend',
+      format: String,
+      default: null,
+      env: 'CPH_BACKEND_URL'
+    }
+  },
   entra: {
     clientId: {
       doc: 'Entra client ID for App Reg',

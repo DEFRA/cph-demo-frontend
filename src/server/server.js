@@ -15,7 +15,7 @@ import { getCacheEngine } from './common/helpers/session-cache/cache-engine.js'
 import { secureContext } from '@defra/hapi-secure-context'
 import { contentSecurityPolicy } from './common/helpers/content-security-policy.js'
 import { metrics } from '@defra/cdp-metrics'
-import auth from './plugins/auth.js'
+// import auth from './plugins/auth.js'
 
 export async function createServer() {
   setupProxy()
@@ -65,7 +65,7 @@ export async function createServer() {
     nunjucksConfig,
     Scooter,
     contentSecurityPolicy,
-    auth,
+    // auth,
     router // Register all the controllers/routes defined in src/server/router.js
   ])
 
